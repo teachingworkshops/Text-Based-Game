@@ -1,9 +1,15 @@
+from Room import Room
+
+
 class Player:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.weapon = "None"
         self.health = 100
         self.experience = 0
         self.points = 0
+        self.room = Room("Jail")
+        self.items = []
         self.weapons = {
             "Pistol": {"damage": 5, "accuracy": 40, "xp_needed": 0},
             "Shotgun": {"damage": 20, "accuracy": 60, "xp_needed": 30},
@@ -14,6 +20,13 @@ class Player:
     def set_weapon(self, weapon_name):
         self.weapon = weapon_name
 
+    # Changes the player's room. If an invalid argument is passed it keeps the player in the old room
+    def set_room(self, new_room):
+        if not isinstance(new_room, Room):
+            print("Invalid room, keeping the player in: " + self.room)
+            return
+        room = new_room
+
     # Subtracts user's health
     # If you need to add health -damage_taken
     def update_health(self, damage_taken):
@@ -21,9 +34,13 @@ class Player:
         if self.health <= 0:
             self.health = 0
 
-    # Ads exp
-    def gain_experience(self, exp):
+    # Adds or subtracts exp
+    def update_experience(self, exp):
         self.experience += exp
+
+    # Adds or subtracts points
+    def update_points(self, points):
+        self.points += points
 
     # Prints out all weapons in the game
     def display_weapons(self):
@@ -31,13 +48,28 @@ class Player:
 
         for weapon_name in self.weapons:
             weapon = self.weapons[weapon_name]
-            print(f"{weapon_name}: Damage: {weapon['damage']}, Accuracy: {weapon['accuracy']}, Experience needed: {weapon['xp_needed']}")
+            print(
+                f"{weapon_name}: Damage: {weapon['damage']}, Accuracy: {weapon['accuracy']}, "
+                f"Experience needed: {weapon['xp_needed']}")
         print("\n")
+
+    # Add an item to the player's item list
+    def add_item(self, item):
+        self.items.append(item)
+
+    # Remove an item from the player's item list
+    def remove_item(self, item):
+        self.items.remove(item)
+
+    # Print all items in the player's item list
+    def display_items(self):
+        for item in self.items:
+            print(item + " is in your inventory")
 
     # prints user's stats
     def display_stats(self):
         print("\033[1mStats: \033[0m")
-        print("Weapon: " + self.weapon )
+        print("Weapon: " + self.weapon)
         print("Health: {}".format(self.health))
         print("Experience: {}".format(self.experience))
         print("Points: {}".format(self.points))
