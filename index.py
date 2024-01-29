@@ -1,7 +1,7 @@
-
 from bank import bank_scene
 from Player import Player
 from Room import Room
+
 
 def start_game():
     print("Welcome to the Wild West adventure!\n")
@@ -29,6 +29,7 @@ def start_game():
 
 def main():
     start_game()
+
 
 if __name__ == "__main__":
     main()

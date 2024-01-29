@@ -22,10 +22,11 @@ class Player:
 
     # Changes the player's room. If an invalid argument is passed it keeps the player in the old room
     def set_room(self, new_room):
-        if not isinstance(new_room, Room):
+        if isinstance(new_room, Room) and (self.room.is_connected(new_room)):
+            room = new_room
+        else:
             print("Invalid room, keeping the player in: " + self.room)
-            return
-        room = new_room
+        return room
 
     # Subtracts user's health
     # If you need to add health -damage_taken
