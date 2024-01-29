@@ -1,7 +1,7 @@
 from Room import Room
 
 
-class Player:
+class Character:
     def __init__(self, name):
         self.name = name
         self.weapon = "None"
