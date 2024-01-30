@@ -3,6 +3,8 @@ class Room:
     class Door:
         def __init__(self, door_id):
             self.door_id = door_id
+            self.room_id1 = ""
+            self.room_id2 = ""
             self.is_locked = False
 
         # Set a door to lock or unlocked (True/False)

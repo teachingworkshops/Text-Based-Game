@@ -70,6 +70,7 @@ class Character:
 
     # Gets the winner of a fight and returns that Character
     def battle(self, other_character, self_modifier, enemy_modifier):
+        # if(self.room.room_id ==)
         enemy_val = (random.randint(1, 10) + self.experience) * enemy_modifier
         self_val = (random.randint(1, 10) + self.experience) * self_modifier
         if enemy_val > self_val:
