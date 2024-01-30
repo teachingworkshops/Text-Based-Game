@@ -1,6 +1,6 @@
 from Room import Room
 import random
-
+from Color import Color
 
 class Character:
     def __init__(self, name):
@@ -46,7 +46,10 @@ class Character:
 
     # Prints out all weapons in the game
     def display_weapons(self):
-        print("\033[1mWeapon: \033[0m")
+        Color.green("Weapon:")
+        Color.yellow("y")
+        Color.red("r")
+        Color.blue("b")
 
         for weapon_name in self.weapons:
             weapon = self.weapons[weapon_name]
