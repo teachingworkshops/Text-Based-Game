@@ -1,0 +1,11 @@
+from Room import Room
+
+
+class SceneBuilder:
+    def __init__(self, name):
+        self.init_jail()
+
+    def init_jail(self):
+        jail_room = Room("Jail")
+        jail_room.add_door()
+        jail_room.add_item()
