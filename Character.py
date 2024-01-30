@@ -1,4 +1,5 @@
 from Room import Room
+import random
 
 
 class Character:
@@ -23,10 +24,10 @@ class Character:
     # Changes the player's room. If an invalid argument is passed it keeps the player in the old room
     def set_room(self, new_room):
         if isinstance(new_room, Room) and (self.room.is_connected(new_room)):
-            room = new_room
+            self.room = new_room
         else:
-            print("Invalid room, keeping the player in: " + self.room)
-        return room
+            print("Invalid room, keeping the player in: " + self.room.room_id)
+        return self.room
 
     # Subtracts user's health
     # If you need to add health -damage_taken
@@ -66,6 +67,15 @@ class Character:
     def display_items(self):
         for item in self.items:
             print(item + " is in your inventory")
+
+    # Gets the winner of a fight and returns that Character
+    def battle(self, other_character, self_modifier, enemy_modifier):
+        enemy_val = (random.randint(1, 10) + self.experience) * enemy_modifier
+        self_val = (random.randint(1, 10) + self.experience) * self_modifier
+        if enemy_val > self_val:
+            return other_character
+        else:
+            return self
 
     # prints user's stats
     def display_stats(self):

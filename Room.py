@@ -13,6 +13,7 @@ class Room:
         self.room_id = room_id
         self.items = []
         self.doors = []
+        self.number_Visits = 0
 
     # Add an item to the room
     def add_item(self, item):
