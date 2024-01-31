@@ -1,6 +1,7 @@
 import story
 from Character import Character
 from SceneBuilder import SceneBuilder
+from random import randrange
 
 # TODO: REMOVE DEBUG PRINT STATEMENTS
 # TODO: FINISH STORY.PY REQUIRED TEXT
@@ -57,8 +58,9 @@ def start_game():
 # satisfied (game completion, etc.).
 def command_loop():
     user_input = input("Enter your command: ")
+    user_input = user_input.lower()
     user_input_list = user_input.split()
-
+    user_input_list = [x.capitalize() for x in user_input_list]
     # A big if statement is the easiest way to implement this. Could be split up into independent functions
     # and called through another method, but this is easier.
     if user_input_list[0] == "Move" and len(user_input_list) > 2 and user_input_list[2] in room_mapping:
@@ -75,26 +77,39 @@ def command_loop():
                     store_scene()
                 else:
                     print("Congrats, you broke it.")
-    elif user_input == "Inventory":
+    elif user_input == "inventory":
         sheriff.display_items()
-    elif user_input == "List items in Room":
+    elif user_input == "list items in room":
         sheriff.room.display_items()
-    elif user_input == "List connections":
+    elif user_input == "list connections":
         sheriff.room.display_connections()
-    elif user_input_list[0] == "Pick" and user_input_list[1] == "up":
-        if (user_input_list[2] in sheriff.room.items):
-            return_str = sheriff.add_item(user_input_list[2])
-            if return_str == user_input_list[2]:
-                sheriff.room.remove_item(user_input_list[2])
+    elif user_input_list[0] == "Info":
+        if user_input_list[1] == "Random-patron":
+            if sceneInit.correct_saloon_guess:
+                print((story.content["Items"]["correct-patron"+str(randrange(1,13))]))
+            else:
+                print((story.content["Items"]["incorrect-patron"+str(randrange(1,13))]))
+            return
+        if user_input_list[1] in sheriff.room.items or user_input_list[1] in sheriff.items:
+            print(story.content["Items"][user_input_list[1].lower()])
+        else:
+            print("\"" + user_input_list[1] + "\" is not a valid item. Check again using \"List items in Room\""
+                                              " or \"Inventory\" \nto see the available items.")
+    elif user_input_list[0] == "Pickup":
+        user_input_list[1] = user_input_list[1]
+        if (user_input_list[1] in sheriff.room.items):
+            return_str = sheriff.add_item(user_input_list[1])
+            if return_str == user_input_list[1]:
+                sheriff.room.remove_item(user_input_list[1])
                 print(return_str + " has been picked up!")
             else:
-                print("\"" + user_input_list[2] + "\" couldn't be picked up. Check again using \"List items in Room\"")
+                print("\"" + user_input_list[1] + "\" couldn't be picked up. Check again using \"List items in Room\"")
         else:
-            print("\"" + user_input_list[2] + "\" is not a valid item. Check again using \"List items in Room\"")
+            print("\"" + user_input_list[1] + "\" is not a valid item. Check again using \"List items in Room\"")
 
-    elif user_input == "Where am I?":
+    elif user_input == "where am i?":
         print("You are in: " + sheriff.room.room_id)
-    elif user_input == "Help":
+    elif user_input == "help":
         print(sceneInit.help_menu_content["commands"])
     else:
         print("Invalid command! Please try again")
@@ -106,7 +121,7 @@ def jail_scene():
     # Run the command loop until the sheriff's inventory contains the required items
     while has_finished is not True:
         command_loop()
-        if sheriff.items.__contains__("Gun") and sheriff.items.__contains__("Badge"):
+        if sheriff.items.__contains__("Revolver") and sheriff.items.__contains__("Badge"):
             has_finished = True
             # Only create the door AFTER condition has been met
             jail_room.create_door("Bank")
@@ -142,8 +157,12 @@ def bank_scene():
             print("\n" + bank_room.story_content['dialogue_peaceful'])
 
             bank_room.create_door("Saloon")
+            bank_room.add_item("Banker")
+            bank_room.add_item("Hostages")
+            bank_room.add_item("Wanted-poster")
 
-            print("You can move to the \'Saloon\' now.")
+            print("You can move to the \'Saloon\' now.\n"
+                  "But before you go, take a look around.")
 
             sheriff.room.has_visited = True
 
@@ -164,14 +183,20 @@ def saloon_scene():
             print(saloon_room.story_content['correct_guess'])
             has_guessed = True
             sceneInit.correct_saloon_guess = True
+            sheriff.add_item("Shotgun")
         elif user_input != 3 and 0 < user_input < 9:
-            print(saloon_room.story_content['incorrect_guess'])
+
+            print(saloon_room.story_content['incorrect_guess'+str(user_input)])
             has_guessed = True
         else:
             print("Try that again partner, you didn't enter a number in range")
     sheriff.room.create_door('Store')
+    saloon_room.add_item("Random-Patron")
+    saloon_room.add_item("Bartender")
+
     sheriff.room.has_visited = True
-    print("You can move to the \'Store\' now.")
+    print("You can move to the \'Store\' now. \n"
+          "But before you go, take a look around.")
 
     print("DEBUG: END SALOON SCENE")
 
