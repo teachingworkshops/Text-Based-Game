@@ -25,14 +25,29 @@ content = {
                     "You've got two choices now.\n"
                     "Settle this the old fashioned way, with a gunfight.\n"
                     "Try to resolve this peacefully.\n",
-        "dialogue_violent": "PLACEHOLDER_VIOLENT",
-        "dialogue_peaceful": "PLACEHOLDER_PEACEFUL",
+        "info-citizens": "Citizen 1: (voice trembling) I never thought I'd see the day we'd be staring down the barrel" 
+                         "of a bandit's gun, Pa.\n"
+                         "Citizen 2: (nodding, eyes wide) Ain't nothin' scarier than the Wild West, son. Just thankful" 
+                         "the sheriff showed up when he did.\n"
+                         "Citizen 3: (gazing at the sheriff's badge) That badge ain't just silver; it's a beacon of" 
+                         "salvation. We owe our lives to that lawman.\n",
+        "info-banker": "Bank Teller: (breathing heavily) Look at him go, straight to the saloon! Guess he figures" 
+                       "he can blend into the chaos there. \nIf he thinks he can hide in the saloon, he's in for a "
+                       "surprise – the sheriff don't let trouble brew in his town for long.",
+        "info-wanted poster": "The wanted poster prominently displays the elusive Bandit Joe Whisper, featuring a "
+                              "distinctive touch with a wooden foot and the unusual flair of two monocles.\nBeneath the"
+                              "stern proclamation of 'Dead or Alive' lies a laundry list of crimes, including bank "
+                              "robbery and cattle rustling, enticing any \nbounty hunter with the promise of a $5,000 "
+                              "reward. The artistic rendering captures the essence of an enigmatic outlaw, \ninviting "
+                              "the vigilant to keep an eye out for this uniquely adorned ne'er-do-well in the vast "
+                              "expanse of the Wild West."
     },
-    "Saloon": {
+
+    "Desert Rose Saloon": {
         "description": "In Desert Rose Saloon, a lively Wild West establishment, weathered cowboys with sun-worn hats "
                        "and worn leather boots gather at scarred wooden tables. \nThe air is thick with laughter, the "
                        "clinking of glasses, and the occasional outburst of a poker game gone south. \nA motley "
-                       "crew of patrons, each with a story etched into lines on their faces, find solace in the "
+                       "crew of patrons, each with a story etched into lines on their faces,\n find solace in the "
                        "shared tales of adventure, heartbreak, and the promise of a fresh start in the rugged "
                        "frontier.\n"
                        "1. A character in mismatched patterns and a hat made of tied bandanas nurses a mug of "
@@ -56,26 +71,30 @@ content = {
                        "You have one chance to approach the criminal without him escaping out one of the exits.\n"
                        "Which patron do you approach?\n"
                        "1,2,3,4,5,6,7,8?\n",
-        "correct_guess": "PLACEHOLDER_CORRECT",
-        "incorrect_guess": "PLACEHOLDER_INCORRECT",
+        "1": "Sheriff, my fashion crimes are in bad taste, not bank theft! You're looking for someone else.\n",
+        "2": "Sheriff, I've been winning cards, not pulling heists! I swear it on my sombrero.\n",
+        "4": "Sheriff, you got the wrong tune; I'm just here for a melody, not mischief, stammers the wiry" 
+             "musician with the horseshoe-shaped guitar.\n",
+        "5": "Sheriff, I've been stitching up folks, not robbing banks! You got the wrong patient.\n",
+        "6": "Sheriff McClane, no need for handcuffs; I've been wrestling mechanical cattle, not robbing banks.\n",
+        "7": "Sheriff, my presence is mysterious, not criminal. I'm just here for an enigmatic breeze.\n",
+        "8": "Sheriff, I'm just sipping rainbow brews, not stirring up trouble. You've got the wrong drinker.\n",
+        "3": "He is caught off guard as Sheriff McClane confronts him. He stumbles backward, wide-eyed and startled, "
+             "managing to escape in a flurry, leaving the sheriff with only the lingering echo of hurried footsteps \n"
+             "and a disappearing silhouette scampering toward the General Store.\n"
+	         "Patron: Sheriff, I saw that Bandit feller high-tailin' it outta here like a scared rabbit. Take my "
+             "shotgun, reckon you'll need it more than I do to bring that varmint to justice.\n"
+             "Sheriff McClane: Much obliged, friend. You keep an eye on the saloon. I'll make sure Bandit's days of" 
+             "dodging the law are over.\n"
     },
     "General Store": {
         "description": "Welcome to the Wagon Wheel Emporium, the beating heart of this dusty frontier town. The wooden"
                        " floor creaks beneath your boots as you step inside. \nSunlight filters through the worn "
                        "shutters, revealing shelves stocked with provisions – barrels of beans, sacks of flour, and "
                        "jars of preserves. \nThe grizzled store keeper is hidden behind the counter, avoiding the "
-                       "brewing fight. You see the criminal around the corner, if you enter \'Y\', "
+                       "brewing fight. You see the criminal around the corner, if you move forward, "
                        "the fight will begin."
 
-    },
-
-    "Help": {
-        "commands": "PLACEHOLDER: LIST OF COMMANDS + DESCRIPTION",
-    },
-
-    "End_Text": {
-        "win": "PLACEHOLDER: WIN",
-        "lose": "PLACEHOLDER: LOSE",
     }
 
 }
