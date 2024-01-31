@@ -28,3 +28,9 @@ class Room:
             if connection == other_room.room_id:
                 return True
         return False
+
+    # List all currently connected rooms
+    def display_connections(self):
+        print(self.connection_list)
+        for room in self.connection_list:
+            print("This room is connected to: " + room)

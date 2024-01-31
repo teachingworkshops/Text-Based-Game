@@ -4,13 +4,15 @@ from Color import Color
 
 
 class Character:
+
+    # has_ended should really not live here but screw it, hasWon makes sense though
     def __init__(self, name):
         self.has_ended = 0
         self.name = name
         self.weapon = "None"
         self.health = 20
         self.experience = 0
-        self.points = 0
+        self.honor = 0
         self.room = Room("Jail")
         self.items = []
         self.hasWon = 0
@@ -27,7 +29,7 @@ class Character:
     # Changes the player's room. If an invalid argument is passed it keeps the player in the old room
     def set_room(self, new_room):
         # if isinstance(new_room, Room) and (self.room.is_connected(new_room)):
-        if (self.room.is_connected(new_room)):
+        if self.room.is_connected(new_room):
             self.room = new_room
         else:
             print("Invalid room, keeping the player in: " + self.room.room_id)
@@ -80,16 +82,16 @@ class Character:
             print(item + " is in your inventory")
 
     # Gets the winner of a fight and returns that Character
+    # TODO: ADD DEPTH AND MAKE IT A LITTLE COOLER, MAYBE WEAPON VARIETY FROM CHASE?
     def battle(self, other_character, self_modifier=1, enemy_modifier=90, is_final=False):
         while self.health > 0 and other_character.health > 0:
             enemy_val = (random.randint(1, 10) + self.experience) * enemy_modifier
             self_val = (random.randint(1, 10) + self.experience) * self_modifier
             if enemy_val > self_val:
                 self.health -= enemy_val
-                # return other_character
             else:
                 other_character.health -= self_val
-                # return self
+        # Returns the winning character
         if self.health > 0 >= other_character.health or self.health == other_character.health:
             return self
         elif self.health <= 0 < other_character.health:
