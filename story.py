@@ -7,7 +7,7 @@ content = {
         "description": "You are sitting at a desk inside the jail, you see in front of you some papers in front of "
                        "you,"
                        "a revolver and a sheriff's badge.\n"
-                       "You may want to review your papers with “info papers”\n" 
+                       "You may want to review your papers with “info papers”\n"
                        "To start, pickup your badge and gun using “pickup badge” and “pickup gun”.\n"
     },
     "Bank": {
@@ -56,7 +56,13 @@ content = {
                        "You have one chance to approach the criminal without him escaping out one of the exits.\n"
                        "Which patron do you approach?\n"
                        "1,2,3,4,5,6,7,8?\n",
-        "correct_guess": "PLACEHOLDER_CORRECT",
+        "correct_guess": "He is caught off guard as Sheriff McClane confronts him. He stumbles backward, wide-eyed and"
+                         "startled, managing to escape in a flurry, leaving the sheriff with only the \nlingering echo "
+                         "of hurried footsteps and a disappearing silhouette scampering toward the General Store.\n"
+                         "Patron: Sheriff, I saw that Bandit feller high-tailin' it outta here like a scared rabbit. "
+                         "Take my shotgun; reckon you'll need it more than I do to bring that varmint to justice.\n"
+                         "Sheriff McClane: Much obliged, friend. You keep an eye on the saloon. I'll make sure Bandit's"
+                         " days of dodging the law are over.\n",
         "incorrect_guess": "PLACEHOLDER_INCORRECT",
     },
     "General Store": {
