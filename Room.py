@@ -5,6 +5,7 @@ class Room:
         self.items = []
         self.connection_list = []
         self.has_visited = False
+        self.story_content = None
 
     # Add an item to the room
     def add_item(self, item):
@@ -21,6 +22,10 @@ class Room:
 
     def create_door(self, other_room):
         self.connection_list.append(other_room)
+
+    def display_connections(self):
+        for connection in self.connection_list:
+            print("This room is connected to: " + connection)
 
     # Check if there is at least one shared door between the two rooms, and both are unlocked
     def is_connected(self, other_room):
