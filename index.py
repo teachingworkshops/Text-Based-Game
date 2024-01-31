@@ -82,12 +82,16 @@ def command_loop():
     elif user_input == "List connections":
         sheriff.room.display_connections()
     elif user_input_list[0] == "Pick" and user_input_list[1] == "up":
-        return_str = sheriff.add_item(user_input_list[2])
-        if return_str == user_input_list[2]:
-            sheriff.room.remove_item(user_input_list[2])
-            print(return_str + " has been picked up!")
+        if (user_input_list[2] in sheriff.room.items):
+            return_str = sheriff.add_item(user_input_list[2])
+            if return_str == user_input_list[2]:
+                sheriff.room.remove_item(user_input_list[2])
+                print(return_str + " has been picked up!")
+            else:
+                print("\"" + user_input_list[2] + "\" couldn't be picked up. Check again using \"List items in Room\"")
         else:
-            print("\"" + user_input_list[2] + "\" couldn't be picked up. Check again using \"List items in Room\"")
+            print("\"" + user_input_list[2] + "\" is not a valid item. Check again using \"List items in Room\"")
+
     elif user_input == "Where am I?":
         print("You are in: " + sheriff.room.room_id)
     elif user_input == "Help":
