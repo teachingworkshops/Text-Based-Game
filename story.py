@@ -28,7 +28,7 @@ content = {
         "dialogue_violent": "PLACEHOLDER_VIOLENT",
         "dialogue_peaceful": "PLACEHOLDER_PEACEFUL",
     },
-    "Desert Rose Saloon": {
+    "Saloon": {
         "description": "In Desert Rose Saloon, a lively Wild West establishment, weathered cowboys with sun-worn hats "
                        "and worn leather boots gather at scarred wooden tables. \nThe air is thick with laughter, the "
                        "clinking of glasses, and the occasional outburst of a poker game gone south. \nA motley "
@@ -55,20 +55,27 @@ content = {
                        "serape, transforming the bar into a whimsical saloon for spirits and laughter.\n"
                        "You have one chance to approach the criminal without him escaping out one of the exits.\n"
                        "Which patron do you approach?\n"
-                       "1,2,3,4,5,6,7,8?\n"
+                       "1,2,3,4,5,6,7,8?\n",
+        "correct_guess": "PLACEHOLDER_CORRECT",
+        "incorrect_guess": "PLACEHOLDER_INCORRECT",
     },
     "General Store": {
         "description": "Welcome to the Wagon Wheel Emporium, the beating heart of this dusty frontier town. The wooden"
                        " floor creaks beneath your boots as you step inside. \nSunlight filters through the worn "
                        "shutters, revealing shelves stocked with provisions – barrels of beans, sacks of flour, and "
                        "jars of preserves. \nThe grizzled store keeper is hidden behind the counter, avoiding the "
-                       "brewing fight. You see the criminal around the corner, if you move forward, "
+                       "brewing fight. You see the criminal around the corner, if you enter \'Y\', "
                        "the fight will begin."
 
     },
 
     "Help": {
         "commands": "PLACEHOLDER: LIST OF COMMANDS + DESCRIPTION",
+    },
+
+    "End_Text": {
+        "win": "PLACEHOLDER: WIN",
+        "lose": "PLACEHOLDER: LOSE",
     }
 
 }
