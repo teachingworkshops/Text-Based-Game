@@ -10,7 +10,7 @@ class Character:
         self.weapon = "None"
         self.health = 20
         self.experience = 0
-        self.honor = 0
+        self.points = 0
         self.room = Room("Jail")
         self.items = []
         self.hasWon = 0
@@ -27,11 +27,7 @@ class Character:
     # Changes the player's room. If an invalid argument is passed it keeps the player in the old room
     def set_room(self, new_room):
         # if isinstance(new_room, Room) and (self.room.is_connected(new_room)):
-        # for connection in self.room.connection_list:
-        #     print(connection)
-        # print(self.room.connection_list)
-        # print(new_room.room_id)
-        if self.room.is_connected(new_room):
+        if (self.room.is_connected(new_room)):
             self.room = new_room
         else:
             print("Invalid room, keeping the player in: " + self.room.room_id)
@@ -68,11 +64,11 @@ class Character:
 
     # Add an item to the player's item list
     def add_item(self, item):
-        if item in self.room.items:
-            self.items.append(item)
+        self.items.append(item)
+        if self.items[-1] == item:
             return item
         else:
-            return 0
+            return "Nothing"
 
     # Remove an item from the player's item list
     def remove_item(self, item):
@@ -84,7 +80,7 @@ class Character:
             print(item + " is in your inventory")
 
     # Gets the winner of a fight and returns that Character
-    def battle(self, other_character, self_modifier=1, enemy_modifier=1, is_final=False):
+    def battle(self, other_character, self_modifier=1, enemy_modifier=90, is_final=False):
         while self.health > 0 and other_character.health > 0:
             enemy_val = (random.randint(1, 10) + self.experience) * enemy_modifier
             self_val = (random.randint(1, 10) + self.experience) * self_modifier
