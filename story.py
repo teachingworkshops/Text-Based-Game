@@ -97,7 +97,7 @@ content = {
                        "shutters, revealing shelves stocked with provisions – barrels of beans, sacks of flour, and "
                        "jars of preserves. \nThe grizzled store keeper is hidden behind the counter, avoiding the "
                        "brewing fight. You see the criminal around the corner, if you move forward, "
-                       "the fight will begin."
+                       "the fight will begin. (Press 'Y')"
 
     },
     "Items": {
