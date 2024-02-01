@@ -7,9 +7,9 @@ content = {
         "description": "You are sitting at a desk inside the jail, you see in front of you some papers in front of "
                        "you,"
                        "a revolver and a sheriff's badge.\n"
-                       "You may want to review your papers with \033[32m“info papers”\033[0m\n"
-                       "To start, pickup your badge and revolver using \033[32m“Pick up badge”\033[0m and \033["
-                       "32m“Pick up revolver”\033[0m.\n"
+                       "You may want to review your papers with “info papers”\n"
+                       "To start, pickup your badge and revolver using \"Pick up badge\""
+                       "\"Pick up revolver\".\n"
     },
     "Bank": {
         "description": "As you swing open the creaky Wild West bank doors, the once charming scene has turned "
@@ -62,7 +62,7 @@ content = {
                        "serape, transforming the bar into a whimsical saloon for spirits and laughter.\n"
                        "You have one chance to approach the criminal without him escaping out one of the exits.\n"
                        "Which patron do you approach?\n"
-                       "\033[32m1,2,3,4,5,6,7,8\033[0m?\n",
+                       "1,2,3,4,5,6,7,8\n",
         "correct_guess": "He is caught off guard as Sheriff McClane confronts him. He stumbles backward, wide-eyed and"
                          "startled, managing to escape in a flurry, leaving the sheriff with only the \nlingering echo "
                          "of hurried footsteps and a disappearing silhouette scampering toward the General Store.\n"
