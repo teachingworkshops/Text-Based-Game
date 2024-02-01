@@ -99,12 +99,11 @@ def command_loop():
         else:
             print("\"" + user_input_list[1] + "\" is not a valid item. Check again using \"List items in Room\""
                                               " or \"Inventory\" \nto see the available items.")
-    elif user_input_list[0] == "Pickup":
-        user_input_list[1] = user_input_list[1]
-        if user_input_list[1] in sheriff.room.items:
-            return_str = sheriff.add_item(user_input_list[1])
-            if return_str == user_input_list[1]:
-                sheriff.room.remove_item(user_input_list[1])
+    elif user_input_list[0] == "Pick" and user_input_list[1] == "Up":
+        if user_input_list[2] in sheriff.room.items:
+            return_str = sheriff.add_item(user_input_list[2])
+            if return_str == user_input_list[2]:
+                sheriff.room.remove_item(user_input_list[2])
                 print(return_str + " has been picked up!")
             else:
                 print("\"" + user_input_list[1] + "\" couldn't be picked up. Check again using \"List items in Room\"")

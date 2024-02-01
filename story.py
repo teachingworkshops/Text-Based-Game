@@ -8,7 +8,7 @@ content = {
                        "you,"
                        "a revolver and a sheriff's badge.\n"
                        "You may want to review your papers with “info papers”\n"
-                       "To start, pickup your badge and revolver using “Pickup badge” and “Pickup revolver”.\n"
+                       "To start, pickup your badge and revolver using “Pick up badge” and “Pick up revolver”.\n"
     },
     "Bank": {
         "description": "As you swing open the creaky Wild West bank doors, the once charming scene has turned "
@@ -111,7 +111,7 @@ content = {
                   "Inventory: Look at what items you have on you\n"
                   "List items in Room: Look at what items are available in the room have\n"
                   "List connections: Look at what places you can \"Move\" to\n"
-                  "Pick up[ITEM]: Add that item to your inventory\n"
+                  "Pick up [ITEM]: Add that item to your inventory\n"
                   "Where am I?: Displays what room the sheriff is currently in\n"
                   "Help: Display a list of the commands available\n",
 
