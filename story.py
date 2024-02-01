@@ -8,8 +8,7 @@ content = {
                        "you,"
                        "a revolver and a sheriff's badge.\n"
                        "You may want to review your papers with “info papers”\n"
-                       "To start, pickup your badge and revolver using \"Pick up badge\""
-                       "\"Pick up revolver\".\n"
+                       "To start, pickup your badge and revolver using \"Pick up badge\" \"Pick up revolver\".\n"
     },
     "Bank": {
         "description": "As you swing open the creaky Wild West bank doors, the once charming scene has turned "
@@ -22,7 +21,7 @@ content = {
         "dialogue": "Sheriff: Halt! I see you there, you scoundrel. This is the law speakin\'\n"
                     "Bandit: Well, well, Sheriff McClane, look who stumbled into my little shindig. This wooden foot "
                     "of mine? "
-                    "More stories than a campfire at dusk. Your move, Sheriff.\n"
+                    "More stories than a campfire at dusk. Your move, Sheriff.\n\n"
                     "You've got two choices now.\n"
                     "Settle this the old fashioned way, with a gunfight, or "
                     "try to resolve this peacefully.\n",
@@ -33,10 +32,10 @@ content = {
                              "allowed the bandit a narrow escape route, prioritizing the safety of the hostages \n"
                              "over immediate capture. As the bandit vanished into the shadows, the sheriff, \n"
                              "haunted by the decision, ensured the hostages emerged unscathed, the weight of the \n"
-                             "untamed frontier etched into the lines of his weathered face.",
+                             "untamed frontier etched into the lines of his weathered face.\n",
     },
     "Saloon": {
-        "description": "In Desert Rose Saloon, a lively Wild West establishment, weathered cowboys with sun-worn hats "
+        "description": "\nIn Desert Rose Saloon, a lively Wild West establishment, weathered cowboys with sun-worn hats"
                        "and worn leather boots gather at scarred wooden tables. \nThe air is thick with laughter, the "
                        "clinking of glasses, and the occasional outburst of a poker game gone south. \nA motley "
                        "crew of patrons, each with a story etched into lines on their faces,\n find solace in the "
@@ -61,8 +60,8 @@ content = {
                        "8. The bartender, rocking a top hat made of leather patches, juggles bottles while wearing a "
                        "serape, transforming the bar into a whimsical saloon for spirits and laughter.\n"
                        "You have one chance to approach the criminal without him escaping out one of the exits.\n"
-                       "Which patron do you approach?\n"
-                       "1,2,3,4,5,6,7,8\n",
+                       "Which patron do you approach?\n\n"
+                       "Your options are: (1,2,3,4,5,6,7,8)\n",
         "correct_guess": "He is caught off guard as Sheriff McClane confronts him. He stumbles backward, wide-eyed and"
                          "startled, managing to escape in a flurry, leaving the sheriff with only the \nlingering echo "
                          "of hurried footsteps and a disappearing silhouette scampering toward the General Store.\n"
@@ -96,8 +95,8 @@ content = {
                        " floor creaks beneath your boots as you step inside. \nSunlight filters through the worn "
                        "shutters, revealing shelves stocked with provisions – barrels of beans, sacks of flour, and "
                        "jars of preserves. \nThe grizzled store keeper is hidden behind the counter, avoiding the "
-                       "brewing fight. You see the criminal around the corner, if you move forward, "
-                       "the fight will begin. (Press 'Y')"
+                       "brewing fight.\n\n You see the criminal around the corner, if you move forward, "
+                       "the fight will begin. (Enter 'Y')"
 
     },
     "Items": {
@@ -192,7 +191,7 @@ content = {
         "commands": "Move to [LOCATION]: move to that place\n"
                     "Info [PERSON/ITEM]: start a dialogue or get a description of an item\n"
                     "Inventory: Look at what items you have on you\n"
-                    "List items in Room: Look at what items are available in the room have\n"
+                    "List items in Room: Look at what items/people are available in the room\n"
                     "List connections: Look at what places you can \"Move\" to\n"
                     "Pick up [ITEM]: Add that item to your inventory\n"
                     "Where am I?: Displays what room the sheriff is currently in\n"
@@ -203,8 +202,8 @@ content = {
                    "crafting a crude splint from nearby branches. With steely determination, you hobble forward, \n"
                    "catching a fleeting glimpse of the bandit slipping into the saloon, the pursuit persisting on the\n"
                    "unforgiving trail of the Wild West. The people of the bank will remember that you chose to not be "
-                   "peaceful (-50 honor).",
-        "standoff": "Both the bandit and you are locked in an unspoken standoff, fingers hovering over their "
+                   "peaceful (-50 honor).\n",
+        "standoff": "\nBoth the bandit and you are locked in an unspoken standoff, fingers hovering over their "
                     "holsters.\n"
                     "The quiet before the storm, where the weight of justice and the allure of escape held the air, \n"
                     "the piercing gaze between them echoing the imminent clash in the Wild West.",

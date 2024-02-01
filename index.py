@@ -5,9 +5,9 @@ from Character import Character
 from SceneBuilder import SceneBuilder
 from random import randrange
 
-# TODO: REMOVE DEBUG PRINT STATEMENTS
-# TODO: FINISH STORY.PY REQUIRED TEXT
-# TODO: CLEAN UP STORY.PY TEXT, FORMAT!!
+# DONE: REMOVE DEBUG PRINT STATEMENTS
+# DONE: FINISH STORY.PY REQUIRED TEXT
+# DONE: CLEAN UP STORY.PY TEXT, FORMAT!!
 
 # Stretch goal: implement having different weapons
 
@@ -70,7 +70,7 @@ def start_game():
 # satisfied (game completion, etc.).
 def command_loop():
     user_input = input("Enter your command: ")
-    # Format so case doesnt matter
+    # Format so case doesn't matter
     user_input = user_input.lower()
     user_input_list = user_input.split()
     user_input_list = [x.capitalize() for x in user_input_list]
