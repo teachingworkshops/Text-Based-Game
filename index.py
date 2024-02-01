@@ -189,26 +189,26 @@ def saloon_scene():
     clear_terminal()
     while has_guessed is not True:
         print(saloon_room.story_content['description'])
-        user_input = (input()).isdigit()
-        while not user_input:
-            print("Need a number!")
-            user_input = (input()).isdigit()
-
-        user_input = int(user_input)
-        if user_input == 3:
-            print(saloon_room.story_content['correct_guess'])
-            has_guessed = True
-            sceneInit.correct_saloon_guess = True
-            sheriff.honor += 30
-            sheriff.experience += 4
-            sheriff.add_item("Shotgun")
-        elif user_input != 3 and 0 < user_input < 9:
-            sheriff.honor -= 30
-            sheriff.experience -= 3
-            print(saloon_room.story_content['incorrect_guess' + str(user_input)])
-            has_guessed = True
+        user_input = input()
+        if user_input.isdigit():
+            user_input = int(user_input)
+            if user_input == 3:
+                print(saloon_room.story_content['correct_guess'])
+                has_guessed = True
+                sceneInit.correct_saloon_guess = True
+                sheriff.honor += 30
+                sheriff.experience += 4
+                sheriff.add_item("Shotgun")
+            elif user_input != 3 and 0 < user_input < 9:
+                sheriff.honor -= 30
+                sheriff.experience -= 3
+                print(saloon_room.story_content['incorrect_guess' + str(user_input)])
+                has_guessed = True
+            else:
+                print("Try that again partner, you didn't enter a number in range")
         else:
-            print("Try that again partner, you didn't enter a number in range")
+            print("You didn't enter a number, try again!")
+
     sheriff.room.create_door('Store')
     saloon_room.add_item("Random-Patron")
     saloon_room.add_item("Bartender")

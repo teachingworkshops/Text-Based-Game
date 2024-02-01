@@ -24,7 +24,7 @@ content = {
                     "of mine? "
                     "More stories than a campfire at dusk. Your move, Sheriff.\n"
                     "You've got two choices now.\n"
-                    "Settle this the old fashioned way, with a gunfight, or"
+                    "Settle this the old fashioned way, with a gunfight, or "
                     "try to resolve this peacefully.\n",
         "dialogue_peaceful": "In a tense standoff, the sheriff, eyes steely and resolve unwavering, \n"
                              "positioned himself between the hostages and the bandit, \n"
