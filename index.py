@@ -152,11 +152,11 @@ def bank_scene():
 
     # Run gameplay loop until completion, use has_visited to avoid extra variable.
     while sheriff.room.has_visited is False:
-        user_input = input("Do you Fight? Saying no will deescalate \033[33m(Y/N)\033[0m: ")
+        user_input = input("Do you Fight? Saying no will deescalate \033[33m(Y/N)\033[0m: ").capitalize()
         if user_input == "Y":
             # print("\n" + bank_room.story_content['dialogue_violent'])
             # Starts a battle with poor odds for the sheriff
-            if sheriff.battle(enemy, .5, 40) == sheriff:
+            if sheriff.battle(enemy, .5, 6) == sheriff:
                 print(story.content["Battle"]["bandit-die"])
                 sheriff.honor += 100
                 sheriff.hasWon = True
