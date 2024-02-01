@@ -1,3 +1,5 @@
+import os
+
 import story
 from Character import Character
 from SceneBuilder import SceneBuilder
@@ -29,10 +31,12 @@ room_mapping = {
     store_room.room_id: store_room,
 }
 
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def start_game():
     # TODO: Replace these prints with JSON
-    print("Welcome to the Wild West adventure!\n")
+    print("Welcome to the Wild West adventure!\n", flush=True)
     print("You are the sheriff in a small town, and trouble is brewing at the bank.\n")
 
     # Set the first scene
@@ -129,7 +133,10 @@ def jail_scene():
             # Only create the door AFTER condition has been met
             jail_room.create_door("Bank")
     sheriff.room.has_visited = True
-    print("You can move to the \'Bank\' now. Do this using the command: \"Move to Bank\"")
+
+    clear_terminal()
+    print("Cleared Jail!")
+    print("You can move to the \'Bank\' now. Do this using the command: \033[33m\"Move to Bank\"\033[0m")
     return 0
 
 
@@ -139,7 +146,7 @@ def bank_scene():
 
     # Run gameplay loop until completion, use has_visited to avoid extra variable.
     while sheriff.room.has_visited is False:
-        user_input = input("Do you Fight? Saying no will deescalate (Y/N)")
+        user_input = input("Do you Fight? Saying no will deescalate \033[33m(Y/N)\033[0m: ")
         if user_input == "Y":
             #print("\n" + bank_room.story_content['dialogue_violent'])
             # Starts a battle with poor odds for the sheriff
@@ -164,7 +171,7 @@ def bank_scene():
         bank_room.add_item("Wanted-poster")
 
         print("You can move to the \'Saloon\' now.\n"
-                  "But before you go, take a look around.")
+                  "But before you go, take a look around. (\033[30m'List items in room'\033[0m) ex: \033[30m'info banker\033[0m'")
 
         sheriff.room.has_visited = True
 
@@ -173,6 +180,8 @@ def saloon_scene():
     has_guessed = False
     # You get a shot at guessing after the descriptions are displayed. If you enter a number out of range,
     # the description is displayed again, and you get another chance
+
+    clear_terminal()
     while has_guessed is not True:
         print(saloon_room.story_content['description'])
         user_input = (input()).isdigit() 
@@ -210,6 +219,7 @@ def saloon_scene():
 
 
 def store_scene():
+    clear_terminal()
     print(store_room.story_content['description'])
     user_input = 'PLACEHOLDER'
     while user_input != 'Y':

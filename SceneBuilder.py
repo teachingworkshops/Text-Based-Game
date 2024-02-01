@@ -19,8 +19,9 @@ class SceneBuilder:
     def init_jail(self):
         jail_room = Room("Jail")
         # jail_room.create_door("Bank")
-        jail_room.add_item("Gun")
+        jail_room.add_item("Revolver")
         jail_room.add_item("Badge")
+        jail_room.add_item("Papers")
         jail_room.story_content = story.content["Jail"]
         return jail_room
 
@@ -28,7 +29,6 @@ class SceneBuilder:
         bank_room = Room("Bank")
         bank_room.create_door("Jail")
         # bank_room.create_door("Saloon")
-        bank_room.add_item("Whiskey")
         bank_room.story_content = story.content["Bank"]
         return bank_room
 
@@ -36,7 +36,7 @@ class SceneBuilder:
         saloon_room = Room("Saloon")
         saloon_room.create_door("Bank")
         # saloon_room.create_door("Store")
-        saloon_room.add_item("Whiskey")
+        # saloon_room.add_item("Whiskey") DRINKING IS A SIN!
         saloon_room.story_content = story.content["Saloon"]
         return saloon_room
 

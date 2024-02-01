@@ -1,7 +1,8 @@
+import story
 from Room import Room
 import random
 from Color import Color
-
+from time import sleep
 
 class Character:
 
@@ -83,7 +84,7 @@ class Character:
 
     # Gets the winner of a fight and returns that Character
     # TODO: ADD DEPTH AND MAKE IT A LITTLE COOLER, MAYBE WEAPON VARIETY FROM CHASE?
-    def battle(self, other_character, self_modifier=1, enemy_modifier=90, is_final=False):
+    def battle(self, other_character, self_modifier=1, enemy_modifier=1, is_final=False):
         while self.health > 0 and other_character.health > 0:
             enemy_val = (random.randint(1, 10) + self.experience) * enemy_modifier
             self_val = (random.randint(1, 10) + self.experience) * self_modifier
@@ -91,6 +92,17 @@ class Character:
                 self.health -= enemy_val
             else:
                 other_character.health -= self_val
+        print(story.content["Battle"]["standoff"])
+        # DRAMATIC STAND OFF   .   .   .
+        sleep(7)
+        print("\n  .  ")
+        sleep(1)
+        print("  .  ")
+        sleep(1)
+        print("  .  \n")
+        sleep(1)
+        print("BANG!!!\n")
+        sleep(3)
         # Returns the winning character
         if self.health > 0 >= other_character.health or self.health == other_character.health:
             return self
