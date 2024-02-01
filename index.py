@@ -58,10 +58,12 @@ def start_game():
             print("You got the job done! that's all that matters")
         elif sheriff.honor < 0:
             print("You got the job done... but at the cost of the respect of the citizens.")
+        end_game()
     else:
         print("You have been killed! This town is now a lawless hellscape that no man, woman or child could ever\n"
               "dream of living in. The sheriff was truly an awful justice enforcer")
         print("A dead sheriff doesn't know his honor...")
+        end_game()
 
 
 # The command loop that drives the game. You could call this method in a while loop until an external condition is
@@ -174,9 +176,7 @@ def bank_scene():
         bank_room.add_item("Hostages")
         bank_room.add_item("Wanted-poster")
 
-        print("You can move to the \'Saloon\' now.\n"
-              "But before you go, take a look around. (\033[30m'List items in room'\033[0m) ex: \033[30m'info "
-              "banker\033[0m'")
+        print("You can move to the \'Saloon\' now. But before you go, take a look around.")
 
         sheriff.room.has_visited = True
 
@@ -242,6 +242,10 @@ def store_scene():
         sheriff.has_ended = True
 
     sheriff.room.has_visited = True
+
+
+def end_game():
+    input("Enter any character to exit: ")
 
 
 def main():
