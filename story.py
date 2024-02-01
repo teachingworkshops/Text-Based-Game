@@ -18,15 +18,21 @@ content = {
                        "wooden counters, now cluttered with overturned inkwells and scattered papers, bear the scars "
                        "of the sudden upheaval.\nThe vault door, usually a symbol of security, now looms ominously in "
                        "the background, a canvas for wanted posters flapping in the uneasy breeze.",
-        "dialogue": "Sheriff: Halt! I see you there, you scoundrel. This is the law speakin\'"
+        "dialogue": "Sheriff: Halt! I see you there, you scoundrel. This is the law speakin\'\n"
                     "Bandit: Well, well, Sheriff McClane, look who stumbled into my little shindig. This wooden foot "
-                    "of mine?\n"
+                    "of mine?"
                     "More stories than a campfire at dusk. Your move, Sheriff.\n"
                     "You've got two choices now.\n"
                     "Settle this the old fashioned way, with a gunfight.\n"
                     "Try to resolve this peacefully.\n",
-        "dialogue_violent": "PLACEHOLDER_VIOLENT",
-        "dialogue_peaceful": "PLACEHOLDER_PEACEFUL",
+        "dialogue_peaceful": "In a tense standoff, the sheriff, eyes steely and resolve unwavering, \n"
+                             "positioned himself between the hostages and the bandit, \n"
+                             "creating a makeshift shield of justice in the dimly lit bank. \n"
+                             "Faced with an impossible choice, the sheriff, with a reluctant nod, \n"
+                             "allowed the bandit a narrow escape route, prioritizing the safety of the hostages \n"
+                             "over immediate capture. As the bandit vanished into the shadows, the sheriff, \n"
+                             "haunted by the decision, ensured the hostages emerged unscathed, the weight of the \n"
+                             "untamed frontier etched into the lines of his weathered face.",
     },
     "Saloon": {
         "description": "In Desert Rose Saloon, a lively Wild West establishment, weathered cowboys with sun-worn hats "
@@ -81,7 +87,7 @@ content = {
                              "You've got the wrong drinker.",
         "incorrect_guess11": "Sheriff, my presence is mysterious, not criminal. I'm just here for an enigmatic breeze.",
         "incorrect_guess12": "Sheriff, I'm just a card-playing cowboy, not a bank-robbing bandit. \n"
-                             "You're wrangling the wrong snake." ,
+                             "You're wrangling the wrong snake.",
         "bartender-tip": ""
         ,
     },
@@ -96,9 +102,9 @@ content = {
     },
     "Items": {
         "badge": "A gleaming silver sheriff's badge, adorned with intricate engravings,\n "
-                 "its star-shaped design symbolizing authority and justice. It fills you with encouragement",
+                 "its star-shaped design symbolizing authority and justice. It fills you with encouragement. +1 xp",
         "revolver": "A weathered, nickel-plated six-shooter with ivory grips, its barrel marked by the scars of \n"
-                    "countless showdowns, epitomizing the gritty resilience of the Wild West.",
+                    "countless showdowns, epitomizing the gritty resilience of the Wild West. +1 xp",
 
         "papers": "Move [LOCATION]: move to that place\n"
                   "Info [PERSON/ITEM]: start a dialogue or get a description of an item\n"
@@ -151,34 +157,35 @@ content = {
                             "that Bandit won't be rustlin' trouble no more.",
 
         "incorrect-patron1": "Dagnabbit, Sheriff, you might need a new pair of spectacles; \n"
-                            "that Bandit just slipped through your fingers like sand through a sieve.",
+                             "that Bandit just slipped through your fingers like sand through a sieve.",
         "incorrect-patron2": "Sheriff McClane, seems like you were chasin' shadows instead of the real Bandit — \n"
-                            "he's probably halfway to the next county by now.",
+                             "he's probably halfway to the next county by now.",
         "incorrect-patron3": "Well, I reckon the Sheriff's guessin' skills are rustier than an abandoned wagon;\n"
-                            " that Bandit just gave us the slip.",
+                             " that Bandit just gave us the slip.",
         "incorrect-patron4": "Sheriff, you might need a tracker instead of a lawman; \n"
-                            "that Bandit's ghostin' through the prairie while you're guessin' in the dark.",
+                             "that Bandit's ghostin' through the prairie while you're guessin' in the dark.",
         "incorrect-patron5": "Looks like the Sheriff's instincts were as dry as a creek bed; \n"
-                            "that Bandit's probably enjoyin' a drink in the next town by now.",
+                             "that Bandit's probably enjoyin' a drink in the next town by now.",
         "incorrect-patron6": "Sheriff McClane, you might need a map to go with that badge; \n"
-                            "that Bandit just rode off into the sunset, and you're left in the dust.",
+                             "that Bandit just rode off into the sunset, and you're left in the dust.",
         "incorrect-patron7": "Sheriff, your hunches might need a tune-up; \n"
-                            "that Bandit's probably laughin' in some hideout while you're guessin' at shadows.",
+                             "that Bandit's probably laughin' in some hideout while you're guessin' at shadows.",
         "incorrect-patron8": "Well, slap me with a saguaro cactus! \n"
-                            "Sheriff, your guessin' game was off, and that Bandit's skippin' town faster than a \n"
+                             "Sheriff, your guessin' game was off, and that Bandit's skippin' town faster than a \n"
                              "jackrabbit.",
         "incorrect-patron9": "Sheriff, seems like your aim was as shaky as a tumbleweed; \n"
-                            "that Bandit vanished like smoke in the wind.",
+                             "that Bandit vanished like smoke in the wind.",
         "incorrect-patron10": "I reckon the Sheriff's instincts were as lost as a tumbleweed rollin' in the breeze; \n"
-                             "that Bandit's probably halfway to the border by now.",
+                              "that Bandit's probably halfway to the border by now.",
         "incorrect-patron11": "Sheriff McClane, your guess might've been as wild as a mustang; \n"
-                             "that Bandit's probably rustlin' trouble somewhere far from here.",
+                              "that Bandit's probably rustlin' trouble somewhere far from here.",
         "incorrect-patron12": "Looks like the Sheriff's badge ain't a compass; \n"
                               "that Bandit made a clean getaway while you were guessin' his trail.",
         "shotgun": "The old western shotgun, worn and weathered, boasts a double-barreled menace, \n"
                    "its stock bearing the scars of countless showdowns, \n"
                    "embodying the rugged reliability of the Wild West frontier.",
-        "bartender": "Bartender: Sheriff, that Bandit fella slipped through quicker than a snake in the grass. \n"
+        "bartender": "Sheriff, that Bandit fella slipped through quicker than a snake in the grass. \n"
+                     "I'd bet he's takin shelter in the Wagon Wheel Emporium, the Store. Check there"
 
     },
     "Help": {
@@ -191,7 +198,19 @@ content = {
                     "Where am I?: Displays what room the sheriff is currently in\n"
                     "Help: Display a list of the commands available\n",
     },
-
+    "Battle": {
+        "ouchie!": "Grimacing through pain, you hastily bandage the gunshot wound in your leg, \n"
+                   "crafting a crude splint from nearby branches. With steely determination, you hobble forward, \n"
+                   "catching a fleeting glimpse of the bandit slipping into the saloon, the pursuit persisting on the\n"
+                   "unforgiving trail of the Wild West. The people of the bank will remember this (-50 honor).",
+        "standoff": "Both the bandit and you are locked in an unspoken standoff, fingers hovering over their holsters.\n"
+                    "The quiet before the storm, where the weight of justice and the allure of escape held the air, \n"
+                    "the piercing gaze between them echoing the imminent clash in the Wild West.",
+        "bandit-die": "Amidst the noonday silence, gunfire erupted, the sheriff's bullet finding its mark \n"
+                      "and ending the bandit's desperate escape in a cloud of swirling dust. \n"
+                      "The fallen outlaw, framed by the unforgiving frontier, became a testament to justice served \n"
+                      "in the piercing echo of the Wild West's relentless dance.",
+    },
     "End_Text": {
         "win": "PLACEHOLDER: WIN",
         "lose": "PLACEHOLDER: LOSE",
