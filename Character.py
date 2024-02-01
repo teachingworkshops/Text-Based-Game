@@ -4,6 +4,7 @@ import random
 from Color import Color
 from time import sleep
 
+
 class Character:
 
     # has_ended should really not live here but screw it, hasWon makes sense though
@@ -48,8 +49,8 @@ class Character:
         self.experience += exp
 
     # Adds or subtracts points
-    def update_points(self, points):
-        self.points += points
+    def update_points(self, experience):
+        self.experience += experience
 
     # Prints out all weapons in the game
     def display_weapons(self):
@@ -84,7 +85,7 @@ class Character:
 
     # Gets the winner of a fight and returns that Character
     # TODO: ADD DEPTH AND MAKE IT A LITTLE COOLER, MAYBE WEAPON VARIETY FROM CHASE?
-    def battle(self, other_character, self_modifier=1, enemy_modifier=1, is_final=False):
+    def battle(self, other_character, self_modifier=1, enemy_modifier=1):
         while self.health > 0 and other_character.health > 0:
             enemy_val = (random.randint(1, 10)) * enemy_modifier
             self_val = (random.randint(1, 10) + self.experience) * self_modifier
@@ -94,7 +95,7 @@ class Character:
                 other_character.health -= self_val
         print(story.content["Battle"]["standoff"])
         # DRAMATIC STAND OFF   .   .   .
-        sleep(7)
+        sleep(5)
         print("\n  .  ")
         sleep(1)
         print("  .  ")
@@ -120,5 +121,5 @@ class Character:
         print("Weapon: " + self.weapon)
         print("Health: {}".format(self.health))
         print("Experience: {}".format(self.experience))
-        print("Points: {}".format(self.points))
+        print("Points: {}".format(self.experience))
         print("\n")
