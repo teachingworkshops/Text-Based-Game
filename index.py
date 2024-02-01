@@ -210,7 +210,7 @@ def saloon_scene():
             print("You didn't enter a number, try again!")
 
     sheriff.room.create_door('Store')
-    saloon_room.add_item("Random-Patron")
+    saloon_room.add_item("Random-patron")
     saloon_room.add_item("Bartender")
 
     sheriff.room.has_visited = True
