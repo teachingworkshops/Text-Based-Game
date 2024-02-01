@@ -8,7 +8,8 @@ content = {
                        "you,"
                        "a revolver and a sheriff's badge.\n"
                        "You may want to review your papers with \033[32m“info papers”\033[0m\n"
-                       "To start, pickup your badge and revolver using \033[32m“Pick up badge”\033[0m and \033[32m“Pick up revolver”\033[0m.\n"
+                       "To start, pickup your badge and revolver using \033[32m“Pick up badge”\033[0m and \033["
+                       "32m“Pick up revolver”\033[0m.\n"
     },
     "Bank": {
         "description": "As you swing open the creaky Wild West bank doors, the once charming scene has turned "
@@ -20,11 +21,11 @@ content = {
                        "the background, a canvas for wanted posters flapping in the uneasy breeze.",
         "dialogue": "Sheriff: Halt! I see you there, you scoundrel. This is the law speakin\'\n"
                     "Bandit: Well, well, Sheriff McClane, look who stumbled into my little shindig. This wooden foot "
-                    "of mine?"
+                    "of mine? "
                     "More stories than a campfire at dusk. Your move, Sheriff.\n"
                     "You've got two choices now.\n"
-                    "Settle this the old fashioned way, with a gunfight.\n"
-                    "Try to resolve this peacefully.\n",
+                    "Settle this the old fashioned way, with a gunfight, or"
+                    "try to resolve this peacefully.\n",
         "dialogue_peaceful": "In a tense standoff, the sheriff, eyes steely and resolve unwavering, \n"
                              "positioned himself between the hostages and the bandit, \n"
                              "creating a makeshift shield of justice in the dimly lit bank. \n"
@@ -88,8 +89,7 @@ content = {
         "incorrect_guess11": "Sheriff, my presence is mysterious, not criminal. I'm just here for an enigmatic breeze.",
         "incorrect_guess12": "Sheriff, I'm just a card-playing cowboy, not a bank-robbing bandit. \n"
                              "You're wrangling the wrong snake.",
-        "bartender-tip": ""
-        ,
+        "bartender-tip": "",
     },
     "General Store": {
         "description": "Welcome to the Wagon Wheel Emporium, the beating heart of this dusty frontier town. The wooden"
@@ -115,11 +115,11 @@ content = {
                   "Where am I?: Displays what room the sheriff is currently in\n"
                   "Help: Display a list of the commands available\n",
 
-        "hostages": "Citizen 1: (voice trembling) I never thought I'd see the day we'd be staring down the barrel"
+        "hostages": "Citizen 1: (voice trembling) I never thought I'd see the day we'd be staring down the barrel "
                     "of a bandit's gun, Pa.\n"
-                    "Citizen 2: (nodding, eyes wide) Ain't nothin' scarier than the Wild West, son. Just thankful"
+                    "Citizen 2: (nodding, eyes wide) Ain't nothin' scarier than the Wild West, son. Just thankful "
                     "the sheriff showed up when he did.\n"
-                    "Citizen 3: (gazing at the sheriff's badge) That badge ain't just silver; it's a beacon of"
+                    "Citizen 3: (gazing at the sheriff's badge) That badge ain't just silver; it's a beacon of "
                     "salvation. We owe our lives to that lawman.\n",
         "banker": "Bank Teller: (breathing heavily) Look at him go, straight to the saloon! Guess he figures"
                   "he can blend into the chaos there. \nIf he thinks he can hide in the saloon, he's in for a "
@@ -189,12 +189,12 @@ content = {
 
     },
     "Help": {
-        "commands": "Move [LOCATION]: move to that place\n"
+        "commands": "Move to [LOCATION]: move to that place\n"
                     "Info [PERSON/ITEM]: start a dialogue or get a description of an item\n"
                     "Inventory: Look at what items you have on you\n"
                     "List items in Room: Look at what items are available in the room have\n"
                     "List connections: Look at what places you can \"Move\" to\n"
-                    "Pick up[ITEM]: Add that item to your inventory\n"
+                    "Pick up [ITEM]: Add that item to your inventory\n"
                     "Where am I?: Displays what room the sheriff is currently in\n"
                     "Help: Display a list of the commands available\n",
     },
@@ -202,8 +202,10 @@ content = {
         "ouchie!": "Grimacing through pain, you hastily bandage the gunshot wound in your leg, \n"
                    "crafting a crude splint from nearby branches. With steely determination, you hobble forward, \n"
                    "catching a fleeting glimpse of the bandit slipping into the saloon, the pursuit persisting on the\n"
-                   "unforgiving trail of the Wild West. The people of the bank will remember this (-50 honor).",
-        "standoff": "Both the bandit and you are locked in an unspoken standoff, fingers hovering over their holsters.\n"
+                   "unforgiving trail of the Wild West. The people of the bank will remember that you chose to not be "
+                   "peaceful (-50 honor).",
+        "standoff": "Both the bandit and you are locked in an unspoken standoff, fingers hovering over their "
+                    "holsters.\n"
                     "The quiet before the storm, where the weight of justice and the allure of escape held the air, \n"
                     "the piercing gaze between them echoing the imminent clash in the Wild West.",
         "bandit-die": "Amidst the noonday silence, gunfire erupted, the sheriff's bullet finding its mark \n"

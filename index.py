@@ -31,8 +31,10 @@ room_mapping = {
     store_room.room_id: store_room,
 }
 
+
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def start_game():
     # TODO: Replace these prints with JSON
@@ -61,17 +63,19 @@ def start_game():
               "dream of living in. The sheriff was truly an awful justice enforcer")
         print("A dead sheriff doesn't know his honor...")
 
+
 # The command loop that drives the game. You could call this method in a while loop until an external condition is
 # satisfied (game completion, etc.).
 def command_loop():
     user_input = input("Enter your command: ")
-    #Format so case doesnt matter
+    # Format so case doesnt matter
     user_input = user_input.lower()
     user_input_list = user_input.split()
     user_input_list = [x.capitalize() for x in user_input_list]
     # A big if statement is the easiest way to implement this. Could be split up into independent functions
     # and called through another method, but this is easier.
-    if user_input_list[0] == "Move" and len(user_input_list) > 2 and user_input_list[2] in room_mapping:
+    if user_input_list[0] == "Move" and len(user_input_list) > 2 and user_input_list[2] in room_mapping \
+            and user_input_list[2] != sheriff.room.room_id:
         if sheriff.set_room(room_mapping[user_input_list[2]]) == user_input_list[2]:
             print("You are now in: " + sheriff.room.room_id)
             if sheriff.room.has_visited is False:
@@ -94,9 +98,9 @@ def command_loop():
     elif user_input_list[0] == "Info":
         if user_input_list[1] == "Random-patron":
             if sceneInit.correct_saloon_guess:
-                print((story.content["Items"]["correct-patron"+str(randrange(1,13))]))
+                print((story.content["Items"]["correct-patron" + str(randrange(1, 13))]))
             else:
-                print((story.content["Items"]["incorrect-patron"+str(randrange(1,13))]))
+                print((story.content["Items"]["incorrect-patron" + str(randrange(1, 13))]))
             return
         if user_input_list[1] in sheriff.room.items or user_input_list[1] in sheriff.items:
             print(story.content["Items"][user_input_list[1].lower()])
@@ -110,9 +114,9 @@ def command_loop():
                 sheriff.room.remove_item(user_input_list[2])
                 print(return_str + " has been picked up!")
             else:
-                print("\"" + user_input_list[1] + "\" couldn't be picked up. Check again using \"List items in Room\"")
+                print("\"" + user_input_list[2] + "\" couldn't be picked up. Check again using \"List items in Room\"")
         else:
-            print("\"" + user_input_list[1] + "\" is not a valid item. Check again using \"List items in Room\"")
+            print("\"" + user_input_list[2] + "\" is not a valid item. Check again using \"List items in Room\"")
 
     elif user_input == "where am i?":
         print("You are in: " + sheriff.room.room_id)
@@ -148,7 +152,7 @@ def bank_scene():
     while sheriff.room.has_visited is False:
         user_input = input("Do you Fight? Saying no will deescalate \033[33m(Y/N)\033[0m: ")
         if user_input == "Y":
-            #print("\n" + bank_room.story_content['dialogue_violent'])
+            # print("\n" + bank_room.story_content['dialogue_violent'])
             # Starts a battle with poor odds for the sheriff
             if sheriff.battle(enemy, .5, 40) == sheriff:
                 print(story.content["Battle"]["bandit-die"])
@@ -171,7 +175,8 @@ def bank_scene():
         bank_room.add_item("Wanted-poster")
 
         print("You can move to the \'Saloon\' now.\n"
-                  "But before you go, take a look around. (\033[30m'List items in room'\033[0m) ex: \033[30m'info banker\033[0m'")
+              "But before you go, take a look around. (\033[30m'List items in room'\033[0m) ex: \033[30m'info "
+              "banker\033[0m'")
 
         sheriff.room.has_visited = True
 
@@ -184,23 +189,23 @@ def saloon_scene():
     clear_terminal()
     while has_guessed is not True:
         print(saloon_room.story_content['description'])
-        user_input = (input()).isdigit() 
-        while(user_input == False):
+        user_input = (input()).isdigit()
+        while not user_input:
             print("Need a number!")
-            user_input = (input()).isdigit() 
+            user_input = (input()).isdigit()
 
         user_input = int(user_input)
         if user_input == 3:
             print(saloon_room.story_content['correct_guess'])
             has_guessed = True
             sceneInit.correct_saloon_guess = True
-            sheriff.honor +=30
-            sheriff.experience+=4
+            sheriff.honor += 30
+            sheriff.experience += 4
             sheriff.add_item("Shotgun")
         elif user_input != 3 and 0 < user_input < 9:
-            sheriff.honor -=30
-            sheriff.experience-=3
-            print(saloon_room.story_content['incorrect_guess'+str(user_input)])
+            sheriff.honor -= 30
+            sheriff.experience -= 3
+            print(saloon_room.story_content['incorrect_guess' + str(user_input)])
             has_guessed = True
         else:
             print("Try that again partner, you didn't enter a number in range")
@@ -209,13 +214,13 @@ def saloon_scene():
     saloon_room.add_item("Bartender")
 
     sheriff.room.has_visited = True
-    if sceneInit.correct_saloon_guess == True:
+    if sceneInit.correct_saloon_guess:
         print("You can move to the \'Store\' now. \n"
-            "But before you go, take a look around.")
+              "But before you go, take a look around.")
 
-    if sceneInit.correct_saloon_guess == False:
+    if not sceneInit.correct_saloon_guess:
         print("The bandit escaped!\n"
-              "you should investigate the Saloon to see if anyone saw where he went")
+              "You should investigate the Saloon to see if anyone saw where he went.")
 
 
 def store_scene():
@@ -237,7 +242,6 @@ def store_scene():
         sheriff.has_ended = True
 
     sheriff.room.has_visited = True
-
 
 
 def main():

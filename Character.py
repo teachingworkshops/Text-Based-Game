@@ -30,7 +30,7 @@ class Character:
     # Changes the player's room. If an invalid argument is passed it keeps the player in the old room
     def set_room(self, new_room):
         # if isinstance(new_room, Room) and (self.room.is_connected(new_room)):
-        if self.room.is_connected(new_room):
+        if self.room.is_connected(new_room) and self.room.room_id != new_room.room_id:
             self.room = new_room
         else:
             print("Invalid room, keeping the player in: " + self.room.room_id)
