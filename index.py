@@ -142,7 +142,7 @@ def jail_scene():
 
     clear_terminal()
     print("Cleared Jail!")
-    print("You can move to the \'Bank\' now. Do this using the command: \033[33m\"Move to Bank\"\033[0m")
+    print("You can move to the \'Bank\' now. Do this using the command: \"Move to Bank\"")
     return 0
 
 
@@ -152,7 +152,7 @@ def bank_scene():
 
     # Run gameplay loop until completion, use has_visited to avoid extra variable.
     while sheriff.room.has_visited is False:
-        user_input = input("Do you Fight? Saying no will deescalate \033[33m(Y/N)\033[0m: ")
+        user_input = input("Do you Fight? Saying no will deescalate (Y/N)")
         if user_input == "Y":
             # print("\n" + bank_room.story_content['dialogue_violent'])
             # Starts a battle with poor odds for the sheriff
