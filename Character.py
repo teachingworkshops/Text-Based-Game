@@ -86,7 +86,7 @@ class Character:
     # TODO: ADD DEPTH AND MAKE IT A LITTLE COOLER, MAYBE WEAPON VARIETY FROM CHASE?
     def battle(self, other_character, self_modifier=1, enemy_modifier=1, is_final=False):
         while self.health > 0 and other_character.health > 0:
-            enemy_val = (random.randint(1, 10) + self.experience) * enemy_modifier
+            enemy_val = (random.randint(1, 10)) * enemy_modifier
             self_val = (random.randint(1, 10) + self.experience) * self_modifier
             if enemy_val > self_val:
                 self.health -= enemy_val
@@ -104,9 +104,14 @@ class Character:
         print("BANG!!!\n")
         sleep(3)
         # Returns the winning character
+
         if self.health > 0 >= other_character.health or self.health == other_character.health:
+            self.health = 20
+            other_character.health = 20
             return self
         elif self.health <= 0 < other_character.health:
+            self.health = 20
+            other_character.health = 20
             return other_character
 
     # prints user's stats
