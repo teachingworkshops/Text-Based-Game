@@ -40,25 +40,34 @@ content = {
                        "clinking of glasses, and the occasional outburst of a poker game gone south. \nA motley "
                        "crew of patrons, each with a story etched into lines on their faces,\n find solace in the "
                        "shared tales of adventure, heartbreak, and the promise of a fresh start in the rugged "
-                       "frontier.\n"
+                       "frontier.\n",
+        "character1":
                        "1. A character in mismatched patterns and a hat made of tied bandanas nurses a mug of "
-                       "sarsaparilla, spinning tales of chasing elusive tumbleweeds in the desert.\n"
+                       "sarsaparilla, spinning tales of chasing elusive tumbleweeds in the desert.\n",
+        "character2":
                        "2. A sharpshooting cowgirl, wearing a sombrero adorned with rattlesnake tails and fringes, "
-                       "flips a silver dollar before joining a poker game filled with inflatable cacti.\n"
+                       "flips a silver dollar before joining a poker game filled with inflatable cacti.\n",
+        "character3":
                        "3. The brooding stranger at the corner table sports a top hat adorned with two monocles, a "
                        "duster coat covered in peculiar patches, and boasts a wooden foot that taps an unconventional "
-                       "rhythm.\n"
+                       "rhythm.\n",
+        "character4":
                        "4. A wiry musician with a guitar shaped like a horseshoe, playing a tune on a harmonica around "
-                       "his neck, fills the saloon with the eclectic sounds of a tumbleweed serenade.\n"
+                       "his neck, fills the saloon with the eclectic sounds of a tumbleweed serenade.\n",
+        "character5":
                        "5. The local sawbones, dressed in a lab coat with a sheriff's badge, leans against the bar, "
                        "sipping sarsaparilla from a mason jar while sharing tales of patching up cowboy mishaps in the"
-                       " Old West.\n"
+                       " Old West.\n",
+        "character6":
                        "6. A towering rancher, wearing a cowboy hat fashioned from a large pair of spurs, regales the "
-                       "crowd with tales of herding mechanical cattle and breaking in robotic mustangs.\n"
+                       "crowd with tales of herding mechanical cattle and breaking in robotic mustangs.\n",
+        "character7":
                        "7. Shrouded in mystery, a figure with a veil and dark eyes, dons a wig made of twine and "
-                       "feathers, wearing a cloak that billows in the wind like a desert dust storm.\n"
+                       "feathers, wearing a cloak that billows in the wind like a desert dust storm.\n",
+        "character8":
                        "8. The bartender, rocking a top hat made of leather patches, juggles bottles while wearing a "
-                       "serape, transforming the bar into a whimsical saloon for spirits and laughter.\n"
+                       "serape, transforming the bar into a whimsical saloon for spirits and laughter.\n",
+        "prompt":
                        "You have one chance to approach the criminal without him escaping out one of the exits.\n"
                        "Which patron do you approach?\n\n"
                        "Your options are: (1,2,3,4,5,6,7,8)\n",

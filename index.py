@@ -4,6 +4,7 @@ import story
 from Character import Character
 from SceneBuilder import SceneBuilder
 from random import randrange
+from Color import Color
 
 # DONE: REMOVE DEBUG PRINT STATEMENTS
 # DONE: FINISH STORY.PY REQUIRED TEXT
@@ -38,8 +39,8 @@ def clear_terminal():
 
 def start_game():
     # TODO: Replace these prints with JSON
-    print("Welcome to the Wild West adventure!\n", flush=True)
-    print("You are the sheriff in a small town, and trouble is brewing at the bank.\n")
+    Color.blue("Welcome to the Wild West adventure!\n")
+    Color.green("You are the sheriff in a small town, and trouble is brewing at the bank.\n")
 
     # Set the first scene
     sheriff.room = jail_room
@@ -51,18 +52,18 @@ def start_game():
 
     # TODO: Replace end game prints with JSON text
     if sheriff.hasWon is True:
-        print("Congrats, your honor was: {}.".format(sheriff.honor))
+        Color.blue("Congrats, your honor was: {}.".format(sheriff.honor))
         if sheriff.honor >= 60:
-            print("You are the best sheriff there ever was!")
+            Color.blue("You are the best sheriff there ever was!")
         elif 60 >= sheriff.honor >= 0:
-            print("You got the job done! that's all that matters")
+            Color.yellow("You got the job done! that's all that matters")
         elif sheriff.honor < 0:
-            print("You got the job done... but at the cost of the respect of the citizens.")
+            Color.red("You got the job done... but at the cost of the respect of the citizens.")
         end_game()
     else:
-        print("You have been killed! This town is now a lawless hellscape that no man, woman or child could ever\n"
+        Color.red("You have been killed! This town is now a lawless hellscape that no man, woman or child could ever\n"
               "dream of living in. The sheriff was truly an awful justice enforcer")
-        print("A dead sheriff doesn't know his honor...")
+        Color.red("A dead sheriff doesn't know his honor...")
         end_game()
 
 
@@ -90,7 +91,7 @@ def command_loop():
                 elif sheriff.room.room_id == "Store":
                     store_scene()
                 else:
-                    print("Congrats, you broke it.")
+                    Color.red("Congrats, you broke it.")
     elif user_input == "inventory":
         sheriff.display_items()
     elif user_input == "list items in room":
@@ -100,36 +101,36 @@ def command_loop():
     elif user_input_list[0] == "Info":
         if user_input_list[1] == "Random-patron":
             if sceneInit.correct_saloon_guess:
-                print((story.content["Items"]["correct-patron" + str(randrange(1, 13))]))
+                Color.green((story.content["Items"]["correct-patron" + str(randrange(1, 13))]))
             else:
-                print((story.content["Items"]["incorrect-patron" + str(randrange(1, 13))]))
+                Color.red((story.content["Items"]["incorrect-patron" + str(randrange(1, 13))]))
             return
         if user_input_list[1] in sheriff.room.items or user_input_list[1] in sheriff.items:
-            print(story.content["Items"][user_input_list[1].lower()])
+            Color.blue(story.content["Items"][user_input_list[1].lower()])
         else:
-            print("\"" + user_input_list[1] + "\" is not a valid item. Check again using \"List items in Room\""
+            Color.red("\"" + user_input_list[1] + "\" is not a valid item. Check again using \"List items in Room\""
                                               " or \"Inventory\" \nto see the available items.")
     elif user_input_list[0] == "Pick" and user_input_list[1] == "Up":
         if user_input_list[2] in sheriff.room.items:
             return_str = sheriff.add_item(user_input_list[2])
             if return_str == user_input_list[2]:
                 sheriff.room.remove_item(user_input_list[2])
-                print(return_str + " has been picked up!")
+                Color.yellow(return_str + " has been picked up!")
             else:
-                print("\"" + user_input_list[2] + "\" couldn't be picked up. Check again using \"List items in Room\"")
+                Color.red("\"" + user_input_list[2] + "\" couldn't be picked up. Check again using \"List items in Room\"")
         else:
-            print("\"" + user_input_list[2] + "\" is not a valid item. Check again using \"List items in Room\"")
+            Color.red("\"" + user_input_list[2] + "\" is not a valid item. Check again using \"List items in Room\"")
 
     elif user_input == "where am i?":
-        print("You are in: " + sheriff.room.room_id)
+        Color.green("You are in: " + sheriff.room.room_id)
     elif user_input == "help":
-        print(sceneInit.help_menu_content["commands"])
+        Color.blue(sceneInit.help_menu_content["commands"])
     else:
-        print("Invalid command! Please try again")
+        Color.red("Invalid command! Please try again")
 
 
 def jail_scene():
-    print(jail_room.story_content['description'])
+    Color.blue(jail_room.story_content['description'])
     has_finished = False
     # Run the command loop until the sheriff's inventory contains the required items
     while has_finished is not True:
@@ -141,14 +142,14 @@ def jail_scene():
     sheriff.room.has_visited = True
 
     clear_terminal()
-    print("Cleared Jail!")
-    print("You can move to the \'Bank\' now. Do this using the command: \"Move to Bank\"")
+    Color.red("Cleared Jail!")
+    Color.yellow("You can move to the \'Bank\' now. Do this using the command: \"Move to Bank\"")
     return 0
 
 
 def bank_scene():
-    print("\n" + bank_room.story_content['description'])
-    print("\n" + bank_room.story_content['dialogue'])
+    Color.green("\n" + bank_room.story_content['description'])
+    Color.yellow("\n" + bank_room.story_content['dialogue'])
 
     # Run gameplay loop until completion, use has_visited to avoid extra variable.
     while sheriff.room.has_visited is False:
@@ -157,26 +158,26 @@ def bank_scene():
             # print("\n" + bank_room.story_content['dialogue_violent'])
             # Starts a battle with poor odds for the sheriff
             if sheriff.battle(enemy, .5, 6) == sheriff:
-                print(story.content["Battle"]["bandit-die"])
+                Color.red(story.content["Battle"]["bandit-die"])
                 sheriff.honor += 100
                 sheriff.hasWon = True
                 sheriff.has_ended = True
             else:
-                print(story.content["Battle"]["ouchie!"])
+                Color.red(story.content["Battle"]["ouchie!"])
                 sheriff.honor -= 50
                 sheriff.experience += 2
             sheriff.room.has_visited = True
         elif user_input == "N":
             # Increase sheriff's honor
             sheriff.honor += 30
-            print("\n" + bank_room.story_content['dialogue_peaceful'])
+            Color.blue("\n" + bank_room.story_content['dialogue_peaceful'])
 
         bank_room.create_door("Saloon")
         bank_room.add_item("Banker")
         bank_room.add_item("Hostages")
         bank_room.add_item("Wanted-poster")
 
-        print("You can move to the \'Saloon\' now. But before you go, take a look around.")
+        Color.yellow("You can move to the \'Saloon\' now. But before you go, take a look around.")
 
         sheriff.room.has_visited = True
 
@@ -188,12 +189,21 @@ def saloon_scene():
 
     clear_terminal()
     while has_guessed is not True:
-        print(saloon_room.story_content['description'])
+        Color.green(saloon_room.story_content['description'])
+        Color.yellow(saloon_room.story_content['character1'])
+        Color.blue(saloon_room.story_content['character2'])
+        Color.green(saloon_room.story_content['character3'])
+        Color.yellow(saloon_room.story_content['character4'])
+        Color.blue(saloon_room.story_content['character5'])
+        Color.green(saloon_room.story_content['character6'])
+        Color.yellow(saloon_room.story_content['character7'])
+        Color.blue(saloon_room.story_content['character8'])
+        print(saloon_room.story_content['prompt'])
         user_input = input()
         if user_input.isdigit():
             user_input = int(user_input)
             if user_input == 3:
-                print(saloon_room.story_content['correct_guess'])
+                Color.green(saloon_room.story_content['correct_guess'])
                 has_guessed = True
                 sceneInit.correct_saloon_guess = True
                 sheriff.honor += 30
@@ -202,12 +212,12 @@ def saloon_scene():
             elif user_input != 3 and 0 < user_input < 9:
                 sheriff.honor -= 30
                 sheriff.experience -= 3
-                print(saloon_room.story_content['incorrect_guess' + str(user_input)])
+                Color.red(saloon_room.story_content['incorrect_guess' + str(user_input)])
                 has_guessed = True
             else:
-                print("Try that again partner, you didn't enter a number in range")
+                Color.red("Try that again partner, you didn't enter a number in range")
         else:
-            print("You didn't enter a number, try again!")
+            Color.red("You didn't enter a number, try again!")
 
     sheriff.room.create_door('Store')
     saloon_room.add_item("Random-patron")
@@ -215,27 +225,27 @@ def saloon_scene():
 
     sheriff.room.has_visited = True
     if sceneInit.correct_saloon_guess:
-        print("You can move to the \'Store\' now. \n"
+        Color.yellow("You can move to the \'Store\' now. \n"
               "But before you go, take a look around.")
 
     if not sceneInit.correct_saloon_guess:
-        print("The bandit escaped!\n"
+        Color.green("The bandit escaped!\n"
               "You should investigate the Saloon to see if anyone saw where he went.")
 
 
 def store_scene():
     clear_terminal()
-    print(store_room.story_content['description'])
+    Color.green(store_room.story_content['description'])
     user_input = 'PLACEHOLDER'
     while user_input != 'Y':
         user_input = input()
         if user_input != 'Y':
-            print("There's nowhere else to go, you need to enter \'Y\'")
+            Color.blue("There's nowhere else to go, you need to enter \'Y\'")
 
     # If you got a correct guess back at the saloon, increase your likelihood of winning.
 
     if sheriff.battle(enemy, 1.5, .7) == sheriff:
-        print(story.content["Battle"]["bandit-die"])
+        Color.blue(story.content["Battle"]["bandit-die"])
         sheriff.hasWon = True
         sheriff.has_ended = True
     else:

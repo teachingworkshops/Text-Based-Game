@@ -1,3 +1,4 @@
+from Color import Color
 class Room:
 
     def __init__(self, room_id):
@@ -17,7 +18,7 @@ class Room:
     # Print all items in the room
     def display_items(self):
         for item in self.items:
-            print(item + " is in \'" + self.room_id + "\'")
+            Color.red(item + " is in \'" + self.room_id + "\'")
 
     def create_door(self, other_room):
         self.connection_list.append(other_room)

@@ -81,7 +81,7 @@ class Character:
     # Print all items in the player's item list
     def display_items(self):
         for item in self.items:
-            print(item + " is in your inventory")
+            Color.red(item + " is in your inventory")
 
     # Gets the winner of a fight and returns that Character
     # TODO: ADD DEPTH AND MAKE IT A LITTLE COOLER, MAYBE WEAPON VARIETY FROM CHASE?
