@@ -190,6 +190,15 @@ def saloon_scene():
     clear_terminal()
     while has_guessed is not True:
         Color.green(saloon_room.story_content['description'])
+        Color.yellow(saloon_room.story_content['character1'])
+        Color.blue(saloon_room.story_content['character2'])
+        Color.green(saloon_room.story_content['character3'])
+        Color.yellow(saloon_room.story_content['character4'])
+        Color.blue(saloon_room.story_content['character5'])
+        Color.green(saloon_room.story_content['character6'])
+        Color.yellow(saloon_room.story_content['character7'])
+        Color.blue(saloon_room.story_content['character8'])
+        print(saloon_room.story_content['prompt'])
         user_input = input()
         if user_input.isdigit():
             user_input = int(user_input)
