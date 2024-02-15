@@ -1,4 +1,5 @@
 import os
+import sys
 
 import story
 from Character import Character
@@ -91,13 +92,13 @@ def command_loop():
                     store_scene()
                 else:
                     print("Congrats, you broke it.")
-    elif user_input == "inventory":
+    elif user_input in ["inventory", "bag", "check bag", "check inventory"]:
         sheriff.display_items()
-    elif user_input == "list items in room":
+    elif user_input in ["list", "look", "look around", "list items in room"]:
         sheriff.room.display_items()
-    elif user_input == "list connections":
+    elif user_input in ["list connections", "connections"]:
         sheriff.room.display_connections()
-    elif user_input_list[0] == "Info":
+    elif user_input_list in["Info", "information"]:
         if user_input_list[1] == "Random-patron":
             if sceneInit.correct_saloon_guess:
                 print((story.content["Items"]["correct-patron" + str(randrange(1, 13))]))
@@ -120,9 +121,9 @@ def command_loop():
         else:
             print("\"" + user_input_list[2] + "\" is not a valid item. Check again using \"List items in Room\"")
 
-    elif user_input == "where am i?":
+    elif user_input in ["where am i?", "location", "current location"]:
         print("You are in: " + sheriff.room.room_id)
-    elif user_input == "help":
+    elif user_input in ["help", "?", "h"]:
         print(sceneInit.help_menu_content["commands"])
     else:
         print("Invalid command! Please try again")
@@ -153,7 +154,7 @@ def bank_scene():
     # Run gameplay loop until completion, use has_visited to avoid extra variable.
     while sheriff.room.has_visited is False:
         user_input = input("Do you Fight? Saying no will deescalate (Y/N)").capitalize()
-        if user_input == "Y":
+        if user_input in ["Y", "Yes"]:
             # print("\n" + bank_room.story_content['dialogue_violent'])
             # Starts a battle with poor odds for the sheriff
             if sheriff.battle(enemy, .5, 6) == sheriff:
@@ -254,3 +255,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

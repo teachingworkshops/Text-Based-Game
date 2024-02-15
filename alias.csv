@@ -1,0 +1,38 @@
+﻿list,list items in room
+look,list items in room
+look around,list items in room
+list items in room,list items in room
+bag,inventory
+check bag,inventory
+check inventory,inventory
+connections,list connections
+list connections,list connections
+info,Info
+Info,Info
+information,Info
+Pick Up,Pick Up
+pick up,Pick Up
+pick Up,Pick Up
+grab,Pick Up
+take,Pick Up
+loot,Pick Up
+Where am I?,where am i?
+where am i?,where am i?
+location,where am i?
+current location,where am i?
+h,help
+?,help
+help,help
+pistol,Revolver
+my gun,Revolver
+revolver,Revolver
+Revolver,Revolver
+badge,Badge
+my badge ,Badge
+Badge,Badge
+Yes,Y
+yes,Y
+Y ,Y
+No,N
+no,N
+N ,N
